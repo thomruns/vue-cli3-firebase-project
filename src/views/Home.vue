@@ -1,18 +1,16 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <Home msg="Home view"/>
+    <h1>Home view</h1>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import Home from '@/components/Home.vue'
+// @ is an alias to /src  SAMPLE FOR SYNTAX ONLY
+// import Home from '@/components/Home.vue'
 
 export default {
   name: 'home',
   components: {
-    Home
   }
 }
 </script>
