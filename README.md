@@ -1,5 +1,5 @@
 # vue-cli3-fb  
-A project using Vue CLI3 and Firebase
+A project using Vue CLI3 and Firebase. This project also uses the Vue Router. As the focus of this project is VueJs and not CSS, it will use Materialize for basic styling.
 
 ## To run this project:
 ```
