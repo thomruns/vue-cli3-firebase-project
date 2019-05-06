@@ -5,7 +5,7 @@
         <router-link to="">
           <span class="nav-title">Nav Title</span>
         </router-link>
-        <a href="" class="btn-floating btn-large halfway-fab amber lighten-2">
+        <a href="" class="btn-floating btn-large halfway-fab pink darken-1">
           <router-link to="">
             <i class="material-icons">add</i>
           </router-link>
