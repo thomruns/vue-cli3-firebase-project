@@ -15,26 +15,16 @@
 </template>
 
 <script>
-// @ is an alias to /src  SAMPLE FOR SYNTAX ONLY
-// import Home from '@/components/Home.vue'
+
+// import the firebase database
+import db from '@/firebase/init.js'
 
 export default {
   name: 'index',
   data() {
     return {
-      movies: [
-        { title: 'The Goodfather', slug: 'the-goodfather', stars: ['Marlong Brando', 'El Pacino', 'James Cant'], id: 1
-        },
-        { title: 'Cannablanca', slug: 'cannablanca', stars: ['Humphrey Brogart', 'Ingrid Bergdorf', 'Pill Henrood', 'Cloud Rains'], id: 2
-        },
-        { title: 'The Woolman', slug: 'the-woolman', stars: ['Len Chaney Jr', 'Cloud Rains', 'Evilyn Akers'], id: 3
-        },
-        { title: 'Darcula', slug: 'darcula', stars: ['Belly Lugosi', 'Dwight Fried', 'Edward Slong'], id: 4
-        }
-      ]
+      movies: []
     }
-  },
-  components: {
   },
   methods: {
     deleteMovie(id) {
@@ -42,6 +32,17 @@ export default {
         return movie.id != id
       })
     }
+  },
+  created() {
+    // fetch data from firestore
+    db.collection('movies').get()
+      .then(snapshot => {
+        snapshot.forEach(doc => {
+          let movie = doc.data()
+          movie.id = doc.id
+          this.movies.push(movie)
+        })
+      })
   }
 }
 </script>
