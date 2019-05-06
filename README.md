@@ -1,6 +1,7 @@
-# vue-cli3-fb
+# vue-cli3-fb  
+A project using Vue CLI3 and Firebase
 
-## Project setup
+## To run this project:
 ```
 npm install
 ```
