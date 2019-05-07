@@ -3,7 +3,7 @@
     <nav class="nav-extended blue darken-2">
       <div class="nav-content">
         <router-link to="">
-          <span class="nav-title">Movie Database</span>
+          <span class="nav-title">Favorite Movies Database</span>
         </router-link>
         <a href="" class="btn-floating btn-large halfway-fab pink darken-1">
           <router-link to="">

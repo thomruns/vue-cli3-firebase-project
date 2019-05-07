@@ -28,8 +28,12 @@ export default {
   },
   methods: {
     deleteMovie(id) {
-      this.movies = this.movies.filter(movie => {
-        return movie.id != id
+      // delete doc from Firebase
+      db.collection('movies').doc(id).delete()
+        .then(() => { // delete from the UI
+          this.movies = this.movies.filter(movie => {
+          return movie.id != id
+        })
       })
     }
   },
