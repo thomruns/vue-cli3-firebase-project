@@ -1,6 +1,10 @@
 <template>
-  <footer>
-    <h5>This is a footer</h5>
+  <footer class="page-footer dark-footer">
+    <ul>
+      <li>footer link</li>
+      <li>footer link</li>
+
+    </ul>
   </footer>
 </template>
 
@@ -17,11 +21,15 @@ export default {
 </script>
 
 <style>
-footer {
+.dark-footer {
   color: #fff;
-  background-color: #000;
+  background-color: rgb(44, 43, 43);
+  font-size: .75em;
   margin-top: 60px;
-  padding: 20px;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 </style>

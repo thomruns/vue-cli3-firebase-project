@@ -2,11 +2,11 @@
   <div class="navbar">
     <nav class="nav-extended blue darken-2">
       <div class="nav-content">
-        <router-link to="">
+        <router-link :to="{ name: 'index' }">
           <span class="nav-title">Favorite Movies Database</span>
         </router-link>
         <a href="" class="btn-floating btn-large halfway-fab pink darken-1">
-          <router-link to="">
+          <router-link :to="{ name: 'AddMovie' }">
             <i class="material-icons">add</i>
           </router-link>
         </a>
@@ -16,6 +16,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'Navbar',
   data() {
