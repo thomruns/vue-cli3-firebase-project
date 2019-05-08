@@ -6,9 +6,10 @@
         <label for="title">Movie Title</label>
         <input type="text" name="title" v-model="title" autocomplete="off">
       </div>
-      <div v-for="(star, index) in stars" :key="index">
-        <label for="star">Star</label>
+      <div v-for="(star, index) in stars" :key="index" class="field">
+        <label for="star">Star:</label>
         <input type="text" name="star" v-model="stars[index]">
+        <i class="material-icons delete" @click="deleteStar(star)">delete</i>
       </div>
       <div class="field add-star">
         <label for="add-star">Add Star</label>
@@ -70,6 +71,11 @@ export default {
       } else {
         this.feedback = "Please enter a value before hitting Tab"
       }
+    },
+    deleteStar(s) {
+      this.stars = this.stars.filter(star => {
+        return star != s
+      })
     }
   }
 }
@@ -81,6 +87,7 @@ export default {
   margin-top: 60px;
   padding: 20px;
   max-width: 500px;
+  
 }
 .add-movie h2 {
   font-size: 2em;
@@ -88,6 +95,16 @@ export default {
 }
 .add-movie .field {
   margin: 20px auto;
+  position: relative;
 }
+.add-movie .delete {
+  position: absolute;
+  right: 0;
+  bottom: 16px;
+  color: #aaa;
+  font-size: 1.4em;
+  cursor: pointer;
+}
+
 </style>
 
