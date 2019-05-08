@@ -19,6 +19,9 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+.firebase*
+firebase.*
+firestore.*
 
 # Misc file formats
 *.ico
