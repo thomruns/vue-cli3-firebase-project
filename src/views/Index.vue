@@ -1,7 +1,7 @@
 <template>
   <div class="index container">
-      <div class="card card-panel grey lighten-4" v-for="movie in movies" :key="movie.id">
-        <div class="card-content">
+      <div class="card card-panel card-custom grey lighten-4" v-for="movie in movies" :key="movie.id">
+        <div class="card-content card-custom">
           <i class="material-icons delete" @click="deleteMovie(movie.id)">delete</i>
           <h2 class="blue-text text-darken-3">{{ movie.title }}</h2>
           <ul class="stars">
@@ -59,7 +59,7 @@ export default {
   margin-top: 30px;
 }
 .index h2 {
-  font-size: 1.8em;
+  font-size: 1.7em;
   text-align: center;
   margin-top: 0px;
 }
@@ -79,6 +79,9 @@ export default {
   cursor: pointer;
   color: #aaa;
   font-size: 1.4em;
+}
+.card.card-custom, card-panel.card-custom {
+  padding: 10px;
 }
 </style>
 

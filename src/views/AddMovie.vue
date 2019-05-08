@@ -24,6 +24,10 @@
 
 
 <script>
+// import the Firebase database
+import db from '@/firebase/init.js'
+import slugify from 'slugify'
+
 export default {
   name: 'AddMovie',
   data() {
@@ -31,12 +35,32 @@ export default {
       title: null,
       another: null,
       stars: [],
-      feedback: null
+      feedback: null,
+      slug: null
     }
   },
   methods: {
     addMovie() {
-      console.log(this.title, this.stars)
+      if(this.title) {
+        this.feedback = null
+        // create slug
+        this.slug = slugify(this.title, {
+          replacement: '-',
+          remove: /[$*_+~.()'"!\-:@]/g,
+          lower: true
+        })
+        db.collection('movies').add({
+          title: this.title,
+          stars: this.stars,
+          slug: this.slug
+        }).then(() => {
+          this.$router.push({ name: 'index' })
+        }).catch (err => {
+          console.log(err)
+        })
+      } else {
+        this.feedback = "Please enter a movie title"
+      }
     },
     addStar() {
       if(this.another){
@@ -52,6 +76,7 @@ export default {
 </script>
 
 <style>
+
 .add-movie {
   margin-top: 60px;
   padding: 20px;
