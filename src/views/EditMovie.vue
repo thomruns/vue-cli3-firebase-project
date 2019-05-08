@@ -25,6 +25,7 @@
 
 <script>
 import db from '@/firebase/init.js'
+import slugify from 'slugify'
 
 export default {
   name: 'EditMovie',
@@ -51,7 +52,26 @@ export default {
       })
     },
     editMovie() {
-      console.log(this.movie.title, this.movie.stars)
+      if(this.movie.title) {
+        this.feedback = null
+        // create slug
+        this.movie.slug = slugify(this.movie.title, {
+          replacement: '-',
+          remove: /[$*_+~.()'"!\-:@]/g,
+          lower: true
+        })
+        db.collection('movies').doc(this.movie.id).update({
+          title: this.movie.title,
+          stars: this.movie.stars,
+          slug: this.movie.slug
+        }).then(() => {
+          this.$router.push({ name: 'index' })
+        }).catch (err => {
+          console.log(err)
+        })
+      } else {
+        this.feedback = "Please enter a movie title"
+      }
     }
   },
   created() {
