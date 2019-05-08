@@ -3,7 +3,6 @@
     <ul>
       <li>footer link</li>
       <li>footer link</li>
-
     </ul>
   </footer>
 </template>
